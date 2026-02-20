@@ -1,0 +1,44 @@
+# Build directories
+build/
+out/
+cmake-build-*/
+.vs/
+
+# vcpkg (cloned git repo for dependency management)
+vcpkg/
+vcpkg_installed/
+
+# Compiled files
+*.exe
+*.dll
+*.pdb
+*.obj
+*.o
+*.a
+*.lib
+*.so
+*.dylib
+
+# IDE and editor files
+.idea/
+*.suo
+*.user
+*.sln.docstates
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Backup format test: credentials and generated outputs
+backup_format_test/.env
+backup_format_test/local_config.ps1
+backup_format_test/outputs/
+
+# Test file
+test

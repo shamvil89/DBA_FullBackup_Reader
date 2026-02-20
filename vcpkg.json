@@ -1,0 +1,13 @@
+{
+  "name": "bakread",
+  "version": "1.0.0",
+  "description": "CLI tool to read SQL Server .bak backups and extract table data",
+  "dependencies": [
+    "zlib",
+    {
+      "name": "arrow",
+      "features": ["parquet"],
+      "platform": "!uwp"
+    }
+  ]
+}
