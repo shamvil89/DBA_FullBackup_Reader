@@ -527,4 +527,45 @@ void DirectExtractor::cache_page(int32_t file_id, int32_t page_id,
     page_cache_[key].assign(data, data + PAGE_SIZE);
 }
 
+std::vector<SystemModule> DirectExtractor::list_modules() {
+    // Ensure catalog is built
+    if (!catalog_) {
+        ListTablesResult dummy = list_tables();
+        if (!dummy.success || !catalog_) {
+            return {};
+        }
+    }
+    return catalog_->list_modules();
+}
+
+std::vector<SystemPrincipal> DirectExtractor::list_principals() {
+    if (!catalog_) {
+        ListTablesResult dummy = list_tables();
+        if (!dummy.success || !catalog_) {
+            return {};
+        }
+    }
+    return catalog_->list_principals();
+}
+
+std::vector<SystemRoleMember> DirectExtractor::list_role_members() {
+    if (!catalog_) {
+        ListTablesResult dummy = list_tables();
+        if (!dummy.success || !catalog_) {
+            return {};
+        }
+    }
+    return catalog_->list_role_members();
+}
+
+std::vector<SystemPermission> DirectExtractor::list_permissions() {
+    if (!catalog_) {
+        ListTablesResult dummy = list_tables();
+        if (!dummy.success || !catalog_) {
+            return {};
+        }
+    }
+    return catalog_->list_permissions();
+}
+
 }  // namespace bakread

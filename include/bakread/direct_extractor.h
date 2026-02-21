@@ -106,6 +106,18 @@ public:
     // List all user tables in the backup
     ListTablesResult list_tables();
 
+    // List all modules (stored procedures, functions, views)
+    std::vector<SystemModule> list_modules();
+
+    // List all database principals
+    std::vector<SystemPrincipal> list_principals();
+
+    // List role memberships
+    std::vector<SystemRoleMember> list_role_members();
+
+    // List database permissions
+    std::vector<SystemPermission> list_permissions();
+
     // Get the resolved table schema (available after extract() runs)
     const TableSchema& resolved_schema() const { return schema_; }
 
